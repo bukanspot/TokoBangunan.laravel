@@ -13,18 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+Route::view('/', 'dashboard');
+Route::view('/pembelian', 'pembelian');
+Route::view('/penjualan', 'penjualan');
+Route::view('/stok', 'stok');
 
-Route::get('/pembelian', function () {
-    return view('pembelian');
-});
-
-Route::get('/penjualan', function () {
-    return view('penjualan');
-});
-
-Route::get('/stok', function () {
-    return view('stok');
+Route::get('./#', function () {
+    return view('sample');
 });

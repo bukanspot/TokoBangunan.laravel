@@ -1,4 +1,4 @@
-@extends('layout/layout')
+@extends('layout/app')
 
 @section('title', 'Stok Barang')
 @section('isi')
