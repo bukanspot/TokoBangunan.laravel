@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'dashboard');
+Route::get('/', 'DashboardController');
 Route::view('/pembelian', 'pembelian');
 Route::view('/penjualan', 'penjualan');
 Route::view('/stok', 'stok');
