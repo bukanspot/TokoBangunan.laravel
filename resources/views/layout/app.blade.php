@@ -15,8 +15,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
   <link href="../assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -27,30 +25,30 @@
 
         Tip 2: you can also add an image using data-image tag
     -->
-      <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
+      <div class="logo"><a href="#" class="simple-text logo-normal">
           Admin
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">
+          <li class="nav-item{{ request()->is('/') ? ' active' : ''}}">
+            <a class="nav-link" href="{{ url('/') }}">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="/pembelian">
+          <li class="nav-item{{ request()->is('pembelian') ? ' active' : ''}}">
+            <a class="nav-link" href="{{ url('/pembelian') }}">
               <i class="material-icons">store</i>
               <p>Penjualan</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="/penjualan">
+          <li class="nav-item{{ request()->is('penjualan') ? ' active' : ''}}">
+            <a class="nav-link" href="{{ url('/penjualan') }}">
               <i class="material-icons">receipt</i>
               <p>Pembelian</p>
             </a>
-            <li class="nav-item ">
-              <a class="nav-link" href="/stok">
+            <li class="nav-item{{ request()->is('stok') ? ' active' : ''}}">
+              <a class="nav-link" href="{{ url('/stok') }}">
                 <i class="material-icons">inventory_2</i>
                 <p>Stok Barang</p>
               </a>
@@ -64,7 +62,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">Dashboard</a>
+            <a class="navbar-brand" href="javascript:;">@yield('title')</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
