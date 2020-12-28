@@ -20,7 +20,8 @@ class CreateBarangTable extends Migration
             $table->unsignedBigInteger('id_satuan');
             // $table->foreign('id_satuan')->references('id')->on('satuan');
             $table->bigInteger('kode');
-            $table->string('satuan', 255);
+            $table->string('nama_barang', 255);
+            $table->bigInteger('stok');
             $table->bigInteger('harga_jual');
             $table->timestamps();
         });
