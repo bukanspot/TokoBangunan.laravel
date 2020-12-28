@@ -13,8 +13,9 @@ class CreateDetailPenjualanTable extends Migration
      */
     public function up()
     {
+        // Schema::enableForeignKeyConstraints();
         Schema::create('detail_penjualan', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->unsignedBigInteger('id_penjualan');
             // $table->foreign('id_penjualan')->references('id')->on('penjualan');
             $table->unsignedBigInteger('id_barang');

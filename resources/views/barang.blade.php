@@ -31,7 +31,7 @@
                         @foreach ($stok as $stok)
                             <tr>
                                 <td>
-                                    1
+                                    {{ $loop->iteration }}
                                 </td>
                                 <td>
                                     {{ $stok->id_jenis}}
@@ -43,7 +43,7 @@
                                     {{ $stok->kode}}
                                 </td>
                                 <td>
-                                    {{ $stok->satuan}}
+                                    {{ $stok->stok}}
                                 </td>
                             </tr>
                         @endforeach

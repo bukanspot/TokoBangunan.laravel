@@ -15,7 +15,6 @@ class StokController extends Controller
     public function index()
     {
         $stok = DB::table('barang')->get();
-        // dump($stok);
         return view('barang', ['stok' => $stok]);
     }
 

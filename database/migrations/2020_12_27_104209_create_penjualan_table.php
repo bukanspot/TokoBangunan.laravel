@@ -14,7 +14,7 @@ class CreatePenjualanTable extends Migration
     public function up()
     {
         Schema::create('penjualan', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->dateTime('tanggal_penjualan');
             $table->bigInteger('total_penjualan');
             $table->timestamps();
