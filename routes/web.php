@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'DashboardController');
 Route::view('/pembelian', 'pembelian');
 Route::view('/penjualan', 'penjualan');
-Route::view('/stok', 'stok');
+Route::get('/stok', 'StokController@index');
 
 Route::get('./#', function () {
     return view('sample');

@@ -15,8 +15,10 @@ class CreateDetailPenjualanTable extends Migration
     {
         Schema::create('detail_penjualan', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('id_penjualan');
-            $table->bigInteger('id_barang');
+            $table->unsignedBigInteger('id_penjualan');
+            // $table->foreign('id_penjualan')->references('id')->on('penjualan');
+            $table->unsignedBigInteger('id_barang');
+            // $table->foreign('id_barang')->references('id')->on('barang');
             $table->bigInteger('qty');
             $table->bigInteger('harga');
             $table->timestamps();
