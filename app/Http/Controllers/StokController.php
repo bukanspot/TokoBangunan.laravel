@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use \App\Stok;
 
 class StokController extends Controller
 {
@@ -14,7 +15,9 @@ class StokController extends Controller
      */
     public function index()
     {
-        $stok = DB::table('barang')->get();
+        // $stok = DB::table('barang')->get();
+        // $stok = Stok::where();
+        $stok = DB::select('SELECT barang.`nama_barang`, jenis.`jenis`, satuan.`satuan`, barang.`stok` FROM barang, jenis, satuan WHERE barang.`id_jenis` = jenis.`id` AND barang.`id_satuan` = satuan.`id`');
         return view('barang', ['stok' => $stok]);
     }
 

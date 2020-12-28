@@ -34,13 +34,13 @@
                                     {{ $loop->iteration }}
                                 </td>
                                 <td>
-                                    {{ $stok->id_jenis}}
+                                    {{ $stok->nama_barang}}
                                 </td>
                                 <td>
-                                    {{ $stok->id_satuan}}
+                                    {{ $stok->jenis}}
                                 </td>
                                 <td>
-                                    {{ $stok->kode}}
+                                    {{ $stok->satuan}}
                                 </td>
                                 <td>
                                     {{ $stok->stok}}
