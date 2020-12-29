@@ -15,11 +15,12 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
   <link href="../assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
+  <link href="../assets/css/custom.css" rel="stylesheet" />
 </head>
 
 <body class="">
   <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+    <div class="sidebar" data-color="green" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -38,14 +39,14 @@
           </li>
           <li class="nav-item{{ request()->is('pembelian') ? ' active' : ''}}">
             <a class="nav-link" href="{{ url('/pembelian') }}">
-              <i class="material-icons">store</i>
-              <p>Penjualan</p>
+              <i class="material-icons">receipt</i>
+              <p>Pembelian</p>
             </a>
           </li>
           <li class="nav-item{{ request()->is('penjualan') ? ' active' : ''}}">
             <a class="nav-link" href="{{ url('/penjualan') }}">
-              <i class="material-icons">receipt</i>
-              <p>Pembelian</p>
+              <i class="material-icons">store</i>
+              <p>Penjualan</p>
             </a>
             <li class="nav-item{{ request()->is('stok') ? ' active' : ''}}">
               <a class="nav-link" href="{{ url('/stok') }}">
