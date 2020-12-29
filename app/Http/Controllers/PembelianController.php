@@ -28,7 +28,7 @@ class PembelianController extends Controller
         $barang = DB::select('SELECT barang.`nama_barang`, jenis.`jenis`, satuan.`satuan` FROM barang, jenis, satuan WHERE barang.`id_jenis` = jenis.`id` AND barang.`id_satuan` = satuan.`id`');
         $jenis = DB::table('jenis')->get();
         $satuan = DB::table('satuan')->get();
-        return view('pembelian')
+        return view('pembelian.pembelian')
             ->with(['barang'=>$barang])
             ->with(['jenis'=>$jenis])
             ->with(['satuan'=>$satuan]);

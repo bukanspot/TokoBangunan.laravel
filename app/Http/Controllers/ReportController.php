@@ -14,6 +14,6 @@ class ReportController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view('report');
+        return view('report.report');
     }
 }

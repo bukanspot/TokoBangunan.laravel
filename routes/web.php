@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 // Penjualan
-Route::view('/', 'penjualan');
+Route::view('/', 'penjualan.penjualan');
 
 // Pembelian
 Route::get('/pembelian', 'PembelianController@create');

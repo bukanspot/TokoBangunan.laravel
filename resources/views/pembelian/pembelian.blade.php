@@ -1,4 +1,4 @@
-@extends('layout/app')
+@extends('../layout/app')
 
 @section('title', 'Pembelian')
 @section('isi')
@@ -9,7 +9,6 @@
             <div class="card">
                 <div class="card-header card-header-primary">
                     <h4 class="card-title">Beli Barang</h4>
-                    {{-- <p class="card-category">Record transaksi pembelian barang</p> --}}
                 </div>
                 <div class="card-body">
                 <form method="POST" action="/pembelian">
@@ -90,7 +89,6 @@
                 <div class="card">
                 <div class="card-header card-header-primary">
                     <h4 class="card-title ">Data Barang</h4>
-                    {{-- <p class="card-category"> Here is a subtitle for this table</p> --}}
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
