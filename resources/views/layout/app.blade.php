@@ -33,8 +33,8 @@
         <ul class="nav">
           <li class="nav-item{{ request()->is('/') ? ' active' : ''}}">
             <a class="nav-link" href="{{ url('/') }}">
-              <i class="material-icons">dashboard</i>
-              <p>Dashboard</p>
+              <i class="material-icons">store</i>
+              <p>Penjualan</p>
             </a>
           </li>
           <li class="nav-item{{ request()->is('pembelian') ? ' active' : ''}}">
@@ -43,17 +43,17 @@
               <p>Pembelian</p>
             </a>
           </li>
-          <li class="nav-item{{ request()->is('penjualan') ? ' active' : ''}}">
-            <a class="nav-link" href="{{ url('/penjualan') }}">
-              <i class="material-icons">store</i>
-              <p>Penjualan</p>
+          <li class="nav-item{{ request()->is('stok') ? ' active' : ''}}">
+            <a class="nav-link" href="{{ url('/stok') }}">
+              <i class="material-icons">inventory_2</i>
+              <p>Stok Barang</p>
             </a>
-            <li class="nav-item{{ request()->is('stok') ? ' active' : ''}}">
-              <a class="nav-link" href="{{ url('/stok') }}">
-                <i class="material-icons">inventory_2</i>
-                <p>Stok Barang</p>
-              </a>
-            </li>
+          </li>
+          <li class="nav-item{{ request()->is('report') ? ' active' : ''}}">
+            <a class="nav-link" href="{{ url('/report') }}">
+              <i class="material-icons">dashboard</i>
+              <p>Report</p>
+            </a>
           </li>
         </ul>
       </div>

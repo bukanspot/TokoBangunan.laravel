@@ -1,6 +1,6 @@
 @extends('layout/app')
 
-@section('title', 'Dashboard')
+@section('title', 'Report')
 @section('isi')
     <p>Hello</p>
 @endsection
