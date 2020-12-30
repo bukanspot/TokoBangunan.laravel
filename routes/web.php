@@ -3,11 +3,12 @@
 use Illuminate\Support\Facades\Route;
 
 // Penjualan
-Route::view('/', 'penjualan.penjualan');
+Route::get('/', 'PenjualanController@index');
+Route::get('/insert', 'PenjualanController@create');
 
 // Pembelian
-Route::get('/pembelian', 'PembelianController@create');
-Route::post('/pembelian', 'PembelianController@store');
+Route::get('/pembelian', 'PembelianController@index');
+Route::post('/pembelian/insert', 'PembelianController@store');
 
 // Stok Barang
 Route::get('/stok', 'StokController@index');

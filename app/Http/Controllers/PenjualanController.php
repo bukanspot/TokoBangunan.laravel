@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\Barang;
 
-class PembelianController extends Controller
+class PenjualanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,14 +13,7 @@ class PembelianController extends Controller
      */
     public function index()
     {
-        $barang = DB::select('SELECT barang.`nama_barang`, barang.`kode`, jenis.`jenis`, satuan.`satuan` FROM barang, jenis, satuan WHERE barang.`id_jenis` = jenis.`id` AND barang.`id_satuan` = satuan.`id`');
-        $jenis = DB::table('jenis')->get();
-        $satuan = DB::table('satuan')->get();
-        $pembelian = Barang::all();
-        return view('pembelian.index')
-            ->with(['barang'=>$barang])
-            ->with(['jenis'=>$jenis])
-            ->with(['satuan'=>$satuan]);
+        return view('penjualan.index');
     }
 
     /**
@@ -32,7 +23,7 @@ class PembelianController extends Controller
      */
     public function create()
     {
-        return Barang::all();
+        return view('penjualan.insert');
     }
 
     /**
@@ -43,18 +34,7 @@ class PembelianController extends Controller
      */
     public function store(Request $request)
     {
-        // $pembelian = new Barang;
-        // $pembelian->nama_barang = $request->namabarang;
-        // $pembelian->kode = $request->kodebarang;
-        // $pembelian->id_jenis = $request->jenis;
-        // $pembelian->id_satuan = $request->satuan;
-        // $pembelian->stok = $request->jumlah;
-        // $pembelian->harga_jual = $request->harga;
-        // $pembelian->keterangan = $request->keterangan;
-        // PembelianController::create($request->all());
-        // DB::insert('insert into barang (id_jenis, satuan, kode, nama_barang, stok, harga_jual, keterangan) values (?, ?, ?, ?, ?, ?, ?)', [1, 'Marc']);
-        Barang::create($request->all());
-        return redirect('/pembelian');
+        //
     }
 
     /**

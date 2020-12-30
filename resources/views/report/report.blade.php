@@ -2,5 +2,5 @@
 
 @section('title', 'Report')
 @section('isi')
-    <p>Hello</p>
+    <p>Report</p>
 @endsection
