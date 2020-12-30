@@ -17,8 +17,8 @@ class StokController extends Controller
     {
         // $stok = DB::table('barang')->get();
         // $stok = Stok::where();
-        $stok = DB::select('SELECT barang.`nama_barang`, jenis.`jenis`, satuan.`satuan`, barang.`stok` FROM barang, jenis, satuan WHERE barang.`id_jenis` = jenis.`id` AND barang.`id_satuan` = satuan.`id`');
-        return view('report.barang', ['stok' => $stok]);
+        $stok = DB::select('SELECT barang.`nama_barang`, jenis.`jenis`, satuan.`satuan`, barang.`stok` FROM barang, jenis, satuan WHERE barang.`id_jenis` = jenis.`id` AND barang.`id_satuan` = satuan.`id` and barang.`stok`<=20');
+        return view('report.stok', ['stok' => $stok]);
     }
 
     /**
