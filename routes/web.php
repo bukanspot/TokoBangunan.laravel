@@ -11,6 +11,7 @@ Route::get('/pembelian', 'PembelianController@index');
 Route::post('/pembelian/insert', 'PembelianController@store');
 Route::post('/pembelian/jenis', 'PembelianController@jenis');
 Route::post('/pembelian/satuan', 'PembelianController@satuan');
+Route::patch('/pembelian/stok/', 'PembelianController@update');
 
 // Stok Barang
 Route::get('/stok', 'StokController@index');

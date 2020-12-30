@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Barang;
 use App\Jenis;
 use App\Satuan;
+use App\Stok;
 
 class PembelianController extends Controller
 {
@@ -17,7 +18,7 @@ class PembelianController extends Controller
      */
     public function index()
     {
-        $barang = DB::select('SELECT barang.`nama_barang`, barang.`kode`, jenis.`jenis`, satuan.`satuan`, barang.`stok` FROM barang, jenis, satuan WHERE barang.`id_jenis` = jenis.`id` AND barang.`id_satuan` = satuan.`id`');
+        $barang = DB::select('SELECT barang.`nama_barang`, barang.`kode`, jenis.`jenis`, satuan.`satuan`, barang.`stok` FROM barang, jenis, satuan WHERE barang.`id_jenis` = jenis.`id` AND barang.`id_satuan` = satuan.`id` ORDER BY barang.`id` DESC');
         $jenis = DB::table('jenis')->get();
         $satuan = DB::table('satuan')->get();
         $pembelian = Barang::all();
@@ -112,9 +113,30 @@ class PembelianController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        // Stok::where('kode', $request->kode)
+        // ->update([
+        //     'stok' => $stok->stok + $request->stok
+        // ]);
+        
+        $barang = DB::select('SELECT barang.`nama_barang`, barang.`kode`, jenis.`jenis`, satuan.`satuan`, barang.`stok` FROM barang, jenis, satuan WHERE barang.`id_jenis` = jenis.`id` AND barang.`id_satuan` = satuan.`id` ORDER BY barang.`id` DESC');
+        $jenis = DB::table('jenis')->get();
+        $satuan = DB::table('satuan')->get();
+        $pembelian = Barang::all();
+        // return view('pembelian.index')
+        //     ->with(['barang'=>$barang])
+        //     ->with(['jenis'=>$jenis])
+        //     ->with(['satuan'=>$satuan]);
+        
+        $affected = DB::table('barang')
+                ->where('kode', $request->kode)
+                ->update(['stok' => $request->jumlah]);
+
+        return redirect('/pembelian')
+            ->with(['barang'=>$barang])
+            ->with(['jenis'=>$jenis])
+            ->with(['satuan'=>$satuan]);
     }
 
     /**

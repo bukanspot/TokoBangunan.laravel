@@ -1,6 +1,6 @@
 @extends('../layout/app')
 
-@section('title', 'Stok Barang')
+@section('title', 'List Barang Minim Stok')
 @section('isi')
     <div class="content">
         <div class="container-fluid">
