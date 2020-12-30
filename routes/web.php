@@ -9,9 +9,17 @@ Route::get('/insert', 'PenjualanController@create');
 // Pembelian
 Route::get('/pembelian', 'PembelianController@index');
 Route::post('/pembelian/insert', 'PembelianController@store');
+Route::post('/pembelian/jenis', 'PembelianController@jenis');
 
 // Stok Barang
 Route::get('/stok', 'StokController@index');
 
-// Dashboard
+// Report
 Route::get('/report', 'ReportController');
+
+// Lainnya
+Route::get('/lainnya', 'LainnyaController@index');
+Route::get('/lainnya/tambah/jenis', 'LainnyaController@create');
+
+// Tambah
+Route::get('/jenis', 'TambahController@jenis');

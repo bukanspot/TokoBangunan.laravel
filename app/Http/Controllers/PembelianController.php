@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Barang;
+use App\Jenis;
 
 class PembelianController extends Controller
 {
@@ -15,7 +16,7 @@ class PembelianController extends Controller
      */
     public function index()
     {
-        $barang = DB::select('SELECT barang.`nama_barang`, barang.`kode`, jenis.`jenis`, satuan.`satuan` FROM barang, jenis, satuan WHERE barang.`id_jenis` = jenis.`id` AND barang.`id_satuan` = satuan.`id`');
+        $barang = DB::select('SELECT barang.`nama_barang`, barang.`kode`, jenis.`jenis`, satuan.`satuan`, barang.`stok` FROM barang, jenis, satuan WHERE barang.`id_jenis` = jenis.`id` AND barang.`id_satuan` = satuan.`id`');
         $jenis = DB::table('jenis')->get();
         $satuan = DB::table('satuan')->get();
         $pembelian = Barang::all();
@@ -54,6 +55,18 @@ class PembelianController extends Controller
         // PembelianController::create($request->all());
         // DB::insert('insert into barang (id_jenis, satuan, kode, nama_barang, stok, harga_jual, keterangan) values (?, ?, ?, ?, ?, ?, ?)', [1, 'Marc']);
         Barang::create($request->all());
+        return redirect('/pembelian');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function jenis(Request $request)
+    {
+        Jenis::create($request->all());
         return redirect('/pembelian');
     }
 

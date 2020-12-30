@@ -4,7 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Jenisbarang extends Model
+class Jenis extends Model
 {
     protected $table = 'jenis';
+    protected $fillable = ['jenis'];
 }
