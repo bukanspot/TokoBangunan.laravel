@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Barang;
 use App\Jenis;
+use App\Satuan;
 
 class PembelianController extends Controller
 {
@@ -67,6 +68,18 @@ class PembelianController extends Controller
     public function jenis(Request $request)
     {
         Jenis::create($request->all());
+        return redirect('/pembelian');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function satuan(Request $request)
+    {
+        Satuan::create($request->all());
         return redirect('/pembelian');
     }
 
