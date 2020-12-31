@@ -13,15 +13,13 @@ Route::post('/pembelian/jenis', 'PembelianController@jenis');
 Route::post('/pembelian/satuan', 'PembelianController@satuan');
 Route::patch('/pembelian/stok/', 'PembelianController@update');
 
-// Stok Barang
-Route::get('/stok', 'StokController@index');
-
 // Report
 Route::get('/report', 'ReportController');
+Route::get('/stok', 'StokController@index');
 
 // Lainnya
 Route::get('/lainnya', 'LainnyaController@index');
-Route::get('/lainnya/tambah/jenis', 'LainnyaController@create');
+Route::get('/lainnya/jenis', 'LainnyaController@jenis');
+Route::get('/lainnya/satuan', 'LainnyaController@satuan');
 
-// Tambah
-Route::get('/jenis', 'TambahController@jenis');
+Route::get('/barang', 'BarangController');

@@ -14,112 +14,19 @@
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
+  {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"> --}}
   <link href="../assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
   <link href="../assets/css/custom.css" rel="stylesheet" />
 </head>
 
 <body class="">
   <div class="wrapper ">
-    <div class="sidebar" data-color="green" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+    
+    <!-- Sidebar -->
+    @include('/layout/sidebar')
 
-        Tip 2: you can also add an image using data-image tag
-    -->
-      <div class="logo"><a href="#" class="simple-text logo-normal">
-          Admin
-        </a></div>
-      <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li class="nav-item{{ request()->is('/') ? ' active' : ''}}">
-            <a class="nav-link" href="{{ url('/') }}">
-              <i class="material-icons">store</i>
-              <p>Penjualan</p>
-            </a>
-          </li>
-          <li class="nav-item{{ request()->is('pembelian') ? ' active' : ''}}">
-            <a class="nav-link" href="{{ url('/pembelian') }}">
-              <i class="material-icons">receipt</i>
-              <p>Pembelian</p>
-            </a>
-          </li>
-          <li class="nav-item{{ request()->is('stok') ? ' active' : ''}}">
-            <a class="nav-link" href="{{ url('/stok') }}">
-              <i class="material-icons">inventory_2</i>
-              <p>Stok Barang</p>
-            </a>
-          </li>
-          <li class="nav-item{{ request()->is('report') ? ' active' : ''}}">
-            <a class="nav-link" href="{{ url('/report') }}">
-              <i class="material-icons">dashboard</i>
-              <p>Report</p>
-            </a>
-          </li>
-          <li class="nav-item{{ request()->is('lainnya') ? ' active' : '' }}">
-            <a class="nav-link" href="{{ url('/lainnya') }}">
-              <i class="material-icons">filter_9_plus</i>
-              <p>Lainnya</p>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="main-panel">
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
-        <div class="container-fluid">
-          <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">@yield('title')</a>
-          </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end">
-            @yield('navbar')
-            <ul class="navbar-nav">
-              <li class="nav-item dropdown">
-                  <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons">notifications</i>
-                  <span class="notification">2</span>
-                  <p class="d-lg-none d-md-block">
-                      Some Actions
-                  </p>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                  <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                  <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-                  <a class="dropdown-item" href="#">Another Notification</a>
-                  <a class="dropdown-item" href="#">Another One</a>
-                  </div>
-              </li>
-            </ul>
-            <ul class="navbar-nav">
-              <li class="nav-item dropdown">
-                <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons">person</i>
-                  <p class="d-lg-none d-md-block">
-                    Account
-                  </p>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="#">Profile</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Log out</a>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <!-- End Navbar -->
-      <div class="content">
-        @yield('isi')
-      </div>
-    </div>
+    <!-- Navbar -->
+    @include('/layout/navbar')
   </div>
   <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js"></script>
@@ -342,6 +249,7 @@
 
     });
   </script>
+  @yield('script')
 </body>
 
 </html>

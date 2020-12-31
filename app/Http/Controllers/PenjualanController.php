@@ -13,7 +13,7 @@ class PenjualanController extends Controller
      */
     public function index()
     {
-        return view('penjualan.index');
+        return view('/penjualan/index');
     }
 
     /**

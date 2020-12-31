@@ -129,9 +129,14 @@ class PembelianController extends Controller
         //     ->with(['jenis'=>$jenis])
         //     ->with(['satuan'=>$satuan]);
         
+        $stoklama = 0;
+        $stokbaru = 0;
+        $stokbaru = $request->jumlah;
+        $stoklama = DB::select('SELECT stok FROM barang WHERE id =?', [$request->kode]);
+        $stokterbaru = $stoklama + $stokbaru;
         $affected = DB::table('barang')
                 ->where('kode', $request->kode)
-                ->update(['stok' => $request->jumlah]);
+                ->update(['stok' => $stokterbaru]);
 
         return redirect('/pembelian')
             ->with(['barang'=>$barang])
