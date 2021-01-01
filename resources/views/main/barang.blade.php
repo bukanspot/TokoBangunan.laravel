@@ -46,10 +46,10 @@
                                         {{ $barang->nama_barang }}
                                     </td>
                                     <td>
-                                        {{ $barang->jenis}}
+                                        {{ $barang->jenis->jenis}}
                                     </td>
                                     <td>
-                                        {{ $barang->satuan}}
+                                        {{ $barang->satuan->satuan}}
                                     </td>
                                     <td>
                                         {{ $barang->stok}}

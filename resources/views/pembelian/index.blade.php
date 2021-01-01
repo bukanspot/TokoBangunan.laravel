@@ -63,10 +63,10 @@
                                         {{ $barang->nama_barang }}
                                     </td>
                                     <td>
-                                        {{ $barang->jenis->jenis}}
+                                        {{ $barang->jenis->jenis }}
                                     </td>
                                     <td>
-                                        {{ $barang->satuan->satuan}}
+                                        {{ $barang->satuan->satuan }}
                                     </td>
                                     <td>
                                         {{ $barang->stok}}
@@ -112,8 +112,8 @@
                                             <div class="form-group">
                                                 <select name="id_jenis" class="dropdown-item2 form-control ">
                                                     <option>Jenis</option>
-                                                    @foreach ($barang as $barang)
-                                                        <option value="{{ $barang->jenis->id }}">{{ $barang->jenis->jenis }}</option>
+                                                    @foreach ($barang as $jenis)
+                                                        <option value="{{ $jenis->jenis->id }}">{{ $jenis->jenis->jenis }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
