@@ -1,5 +1,9 @@
 @extends('../layout/app')
 
+@section('notif')
+    <span class="notification">1</span>
+@endsection
+
 @section('title', 'List Barang Minim Stok')
 @section('isi')
     <div class="content">

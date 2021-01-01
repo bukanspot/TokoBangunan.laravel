@@ -25,3 +25,6 @@ Route::get('/satuan', 'SatuanController@index');
 Route::post('/satuan', 'SatuanController@create'); 
 Route::delete('/satuan/{satuan}', 'SatuanController@destroy');
 Route::patch('/satuan/{satuan}', 'SatuanController@update');
+
+// Report
+Route::get('/stok', 'StokController');
