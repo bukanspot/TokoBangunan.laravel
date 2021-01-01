@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Satuan extends Model
+class Penjualan extends Model
 {
     public function barang(){
         return $this->hasMany(Barang::class);

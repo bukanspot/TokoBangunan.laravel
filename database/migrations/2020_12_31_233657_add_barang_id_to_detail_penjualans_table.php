@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSatuanTable extends Migration
+class AddBarangIdToDetailPenjualansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateSatuanTable extends Migration
      */
     public function up()
     {
-        Schema::create('satuan', function (Blueprint $table) {
-            $table->id();
-            $table->string('satuan');
-            $table->timestamps();
+        Schema::table('detail_penjualans', function (Blueprint $table) {
+            $table->foreignId('barang_id')->after('penjualan_id')->constrained('barangs');
         });
     }
 
@@ -27,6 +25,8 @@ class CreateSatuanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('satuan');
+        Schema::table('detail_penjualans', function (Blueprint $table) {
+            $table->dropColumn('barang_id');
+        });
     }
 }

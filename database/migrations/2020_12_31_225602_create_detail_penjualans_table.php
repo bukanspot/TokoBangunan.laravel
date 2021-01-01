@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDetailPenjualanTable extends Migration
+class CreateDetailPenjualansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class CreateDetailPenjualanTable extends Migration
      */
     public function up()
     {
-        // Schema::enableForeignKeyConstraints();
-        Schema::create('detail_penjualan', function (Blueprint $table) {
+        Schema::create('detail_penjualans', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_penjualan');
-            // $table->foreign('id_penjualan')->references('id')->on('penjualan');
-            $table->unsignedBigInteger('id_barang');
-            // $table->foreign('id_barang')->references('id')->on('barang');
             $table->bigInteger('qty');
             $table->bigInteger('harga');
             $table->timestamps();
@@ -33,6 +28,6 @@ class CreateDetailPenjualanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detail_penjualan');
+        Schema::dropIfExists('detail_penjualans');
     }
 }
