@@ -19,3 +19,9 @@ Route::get('/jenis', 'JenisController@index');
 Route::post('/jenis', 'JenisController@create'); 
 Route::delete('/jenis/{jenis}', 'JenisController@destroy');
 Route::patch('/jenis/{jenis}', 'JenisController@update');
+
+//Satuan
+Route::get('/satuan', 'SatuanController@index');
+Route::post('/satuan', 'SatuanController@create'); 
+Route::delete('/satuan/{satuan}', 'SatuanController@destroy');
+Route::patch('/satuan/{satuan}', 'SatuanController@update');

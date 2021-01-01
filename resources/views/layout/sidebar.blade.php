@@ -37,7 +37,7 @@
                     <p>Jenis</p>
                 </a>
             </li>
-            <li class="nav-item{{ request()->is('satian') ? ' active' : '' }}">
+            <li class="nav-item{{ request()->is('satuan') ? ' active' : '' }}">
                 <a class="nav-link" href="{{ url('/satuan') }}">
                     <i class="material-icons">device_hub</i>
                     <p>Satuan</p>
