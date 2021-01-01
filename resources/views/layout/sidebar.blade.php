@@ -7,14 +7,8 @@
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
-            <li class="nav-item{{ request()->is('report') ? ' active' : ''}}">
-                <a class="nav-link" href="{{ url('/report') }}">
-                    <i class="material-icons">dashboard</i>
-                    <p>Report</p>
-                </a>
-            </li>
-            <li class="nav-item{{ request()->is('/') ? ' active' : ''}}">
-                <a class="nav-link" href="{{ url('/') }}">
+            <li class="nav-item{{ request()->is('penjualan') ? ' active' : ''}}">
+                <a class="nav-link" href="{{ url('/penjualan') }}">
                     <i class="material-icons">store</i>
                     <p>Penjualan</p>
                 </a>
@@ -47,6 +41,12 @@
                 <a class="nav-link" href="{{ url('/satuan') }}">
                     <i class="material-icons">device_hub</i>
                     <p>Satuan</p>
+                </a>
+            </li>
+            <li class="nav-item{{ request()->is('report') ? ' active' : ''}}">
+                <a class="nav-link" href="{{ url('/report') }}">
+                    <i class="material-icons">dashboard</i>
+                    <p>Report</p>
                 </a>
             </li>
             <li class="nav-item{{ request()->is('lainnya') ? ' active' : '' }}">

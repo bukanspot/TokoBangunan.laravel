@@ -63,10 +63,10 @@
                                         {{ $barang->nama_barang }}
                                     </td>
                                     <td>
-                                        {{ $barang->jenis}}
+                                        {{ $barang->jenis->jenis}}
                                     </td>
                                     <td>
-                                        {{ $barang->satuan}}
+                                        {{ $barang->satuan->satuan}}
                                     </td>
                                     <td>
                                         {{ $barang->stok}}
@@ -78,7 +78,7 @@
                     </div>
                 </div>
                 
-                <!-- Masukkan Baru -->
+                {{-- <!-- Masukkan Baru -->
                 <div class="modal fade" id="inputbarang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <form method="POST" action="/pembelian/insert">
                     <div class="modal-dialog" role="document">
@@ -112,8 +112,8 @@
                                             <div class="form-group">
                                                 <select name="id_jenis" class="dropdown-item2 form-control ">
                                                     <option>Jenis</option>
-                                                    @foreach ($jenis as $jenis)
-                                                        <option value="{{ $jenis->id}}">{{ $jenis->jenis}}</option>
+                                                    @foreach ($barang as $barang)
+                                                        <option value="{{ $barang->jenis->id }}">{{ $barang->jenis->jenis }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -124,8 +124,8 @@
                                             <div class="form-group">
                                                 <select name="id_satuan" class="dropdown-item2 form-control ">Satuan
                                                     <option>Satuan</option>
-                                                    @foreach ($satuan as $satuan)
-                                                        <option value="{{ $satuan->id}}">{{ $satuan->satuan}}</option>
+                                                    @foreach ($barang as $barang)
+                                                        <option value="{{ $barang->satuan->id }}">{{ $barang->satuan->satuan }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -157,7 +157,7 @@
                             </div>
                         </div>
                     </form>
-                </div>
+                </div> --}}
 
                 <!-- Tambah Data -->
                 <div class="modal fade" id="updatebarang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

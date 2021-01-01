@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class detail_penjualan extends Model
 {
     public function penjualans(){
-        return $this->hasOne(Penjualan::class);
+        return $this->belongsTo(Penjualan::class);
     }
 
     public function barangs(){
-        return $this->hasOne(Barang::class);
+        return $this->belongsTo(Barang::class);
     }
 }
