@@ -13,6 +13,8 @@ Route::get('/pembelian', 'PembelianController@index');
 
 // Barang
 Route::get('/barang', 'BarangController@index');
+Route::post('/barang', 'BarangController@create');
+Route::delete('/barang/{barang}', 'BarangController@destroy');
 
 // Jenis
 Route::get('/jenis', 'JenisController@index');
