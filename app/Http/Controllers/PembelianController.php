@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Barang;
+use App\Jenis;
+use App\Satuan;
 
 class PembelianController extends Controller
 {
@@ -15,8 +17,12 @@ class PembelianController extends Controller
     public function index()
     {
         $barang = Barang::get();
+        $jenis = Jenis::get();
+        $satuan = Satuan::get();
         return view('pembelian.index')
             ->with(['barang' => $barang])
+            ->with(['jenis' => $jenis])
+            ->with(['satuan' => $satuan])
         ;
     }
 

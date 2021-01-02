@@ -16,7 +16,7 @@ class SatuanController extends Controller
     public function create(Request $request)
     {
         Satuan::create($request->all());
-        return redirect('/satuan');
+        return back();
     }
 
     public function destroy($id)

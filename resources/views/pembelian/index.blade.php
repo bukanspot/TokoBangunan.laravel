@@ -1,12 +1,9 @@
 @extends('../layout/app')
 
 @section('navbar')
-    <ul class="nav">
+    <ul class="nav col-sm-4">
         <li class="nav-item">
             <a class="nav-link" data-toggle="modal" href="#inputbarang">Tambah Barang</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="modal" href="#updatebarang">Tambah Stok</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" data-toggle="modal" href="#inputjenis">Tambah Jenis</a>
@@ -15,6 +12,15 @@
             <a class="nav-link" data-toggle="modal" href="#inputsatuan">Tambah Satuan</a>
         </li>
     </ul>
+    <form class="navbar-form">
+        <div class="input-group no-border">
+        <input type="text" value="" class="form-control" placeholder="Search...">
+        <button type="submit" class="btn btn-white btn-round btn-just-icon">
+            <i class="material-icons">search</i>
+            <div class="ripple-container"></div>
+        </button>
+        </div>
+    </form>
 @endsection
 
 @section('title', 'Pembelian')
@@ -22,7 +28,7 @@
     <div class="content">
         <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
                 <div class="card">
                 <div class="card-header card-header-primary">
                     <h4 class="card-title ">Data Barang</h4>
@@ -30,6 +36,12 @@
                 <div class="card-body">
                     <div class="table-responsive">
                     <table class="table">
+                        <colgroup>
+                            <col span="1" style="width: 5%;">
+                            <col span="1" style="width: 10%;">
+                            <col span="1" style="width: 55%;">
+                            <col span="1" style="width: 10%;">
+                        </colgroup>
                         <thead class=" text-primary">
                             <th>
                                 No
@@ -51,25 +63,25 @@
                             </th>
                         </thead>
                         <tbody>
-                            @foreach ($barang as $barang)
+                            @foreach ($barang as $showbarang)
                                 <tr>
                                     <td>
                                         {{ $loop->iteration }}
                                     </td>
                                     <td>
-                                        {{ $barang->kode }}
+                                        {{ $showbarang->kode }}
                                     </td>
                                     <td>
-                                        {{ $barang->nama_barang }}
+                                        {{ $showbarang->nama_barang }}
                                     </td>
                                     <td>
-                                        {{ $barang->jenis->jenis }}
+                                        {{ $showbarang->jenis->jenis }}
                                     </td>
                                     <td>
-                                        {{ $barang->satuan->satuan }}
+                                        {{ $showbarang->satuan->satuan }}
                                     </td>
                                     <td>
-                                        {{ $barang->stok}}
+                                        {{ $showbarang->stok}}
                                     </td>
                                 </tr>
                             @endforeach
@@ -78,9 +90,9 @@
                     </div>
                 </div>
                 
-                {{-- <!-- Masukkan Baru -->
+                <!-- Masukkan Baru -->
                 <div class="modal fade" id="inputbarang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <form method="POST" action="/pembelian/insert">
+                    <form method="POST" action="/barang">
                     <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -110,10 +122,10 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <select name="id_jenis" class="dropdown-item2 form-control ">
+                                                <select name="jenis_id" class="dropdown-item2 form-control ">
                                                     <option>Jenis</option>
-                                                    @foreach ($barang as $jenis)
-                                                        <option value="{{ $jenis->jenis->id }}">{{ $jenis->jenis->jenis }}</option>
+                                                    @foreach ($jenis as $jenis)
+                                                        <option value="{{ $jenis->id }}">{{ $jenis->jenis }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -122,10 +134,10 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <select name="id_satuan" class="dropdown-item2 form-control ">Satuan
+                                                <select name="satuan_id" class="dropdown-item2 form-control ">Satuan
                                                     <option>Satuan</option>
-                                                    @foreach ($barang as $barang)
-                                                        <option value="{{ $barang->satuan->id }}">{{ $barang->satuan->satuan }}</option>
+                                                    @foreach ($satuan as $satuan)
+                                                        <option value="{{ $satuan->id }}">{{ $satuan->satuan }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -157,7 +169,7 @@
                             </div>
                         </div>
                     </form>
-                </div> --}}
+                </div>
 
                 <!-- Tambah Data -->
                 <div class="modal fade" id="updatebarang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -201,7 +213,7 @@
 
                 <!-- Tambah Jenis -->
                 <div class="modal fade" id="inputjenis" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <form method="POST" action="/pembelian/jenis">
+                    <form method="POST" action="/jenis">
                         @csrf
                         <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -234,7 +246,7 @@
 
                 <!-- Tambah Satuan -->
                 <div class="modal fade" id="inputsatuan" tabindex="-1" role="dialog" aria-labelledby="inputsatuan" aria-hidden="true">
-                    <form method="POST" action="/pembelian/satuan">
+                    <form method="POST" action="/satuan">
                         @csrf
                         <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -266,6 +278,43 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-4">
+            <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title ">Tambah Stok</h4>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="/barang">
+                    @method('post')
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                            <label for="kode" class="bmd-label-floating">Kode Barang</label>
+                            <input type="number" class="form-control" name="kode">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                            <label for="stok" class="bmd-label-floating">Jumlah</label>
+                            <input type="number" class="form-control" name="stok">
+                            </div>
+                        </div>
+                    </div>
+                    {{-- <input type="number" class="form-control" name="nama_barang" value="{{ }}">
+                    <input type="number" class="form-control" name="kode">
+                    <input type="number" class="form-control" name="jenis">
+                    <input type="number" class="form-control" name="satuan">
+                    <input type="number" class="form-control" name="harga_jual"> --}}
+                    <div class="row">
+                    </div>
+                        <button type="submit" class="btn btn-primary pull-right">Tambah</button>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
         </div>
+    </div>
     </div>
 @endsection

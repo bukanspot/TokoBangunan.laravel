@@ -11,6 +11,7 @@ Route::get('/penjualan', 'PenjualanController@index');
 // Pembelian
 Route::get('/pembelian', 'PembelianController@index');
 
+
 // Barang
 Route::get('/barang', 'BarangController@index');
 Route::post('/barang', 'BarangController@create');

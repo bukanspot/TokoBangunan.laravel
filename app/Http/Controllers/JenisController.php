@@ -17,7 +17,7 @@ class JenisController extends Controller
     public function create(Request $request)
     {
         Jenis::create($request->all());
-        return redirect('/jenis');
+        return back();
     }
 
     public function destroy($id)
