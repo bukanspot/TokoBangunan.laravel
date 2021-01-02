@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Barang;
+use App\Jenis;
+use App\Satuan;
 
 class BarangController extends Controller
 {
     public function index()
     {
         $barang = Barang::get();
-        $jenis = Barang::get();
-        $satuan = Barang::get();
+        $jenis = Jenis::get();
+        $satuan = Satuan::get();
         $edit = Barang::get();
 
         return view('main.barang')
@@ -34,4 +36,16 @@ class BarangController extends Controller
         return back();
     }
 
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'jenis'=> 'required'
+        ]);
+
+        Jenis::where('id', $id)
+            ->update([
+                'jenis' => $request->jenis
+            ]);
+        return back();
+    }
 }

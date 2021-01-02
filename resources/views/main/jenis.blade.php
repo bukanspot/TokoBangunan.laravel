@@ -39,8 +39,65 @@
                                         {{ $jenis->jenis }}
                                     </td>
                                     <td>
-                                        <button class="btn" data-toggle="modal" href="#edit">Edit</button>
-                                        <button class="btn" data-toggle="modal" href="#delete">Hapus</button>
+                                        <!-- Edit -->
+                                        <button class="btn" data-toggle="modal" href="#edit{{ $jenis->id }}">Edit</button>
+                                        <div class="modal fade" id="edit{{ $jenis->id }}" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+                                            <form method="POST" action="/jenis/{{ $jenis->id }}">
+                                                @method('patch')
+                                                @csrf
+                                                <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="edit">Edit Jenis</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="col-md-12">
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group">
+                                                                            <label for="jenis" class="bmd-label-floating" >Nama Jenis</label>
+                                                                            <input type="text" name="jenis" value="{{ $jenis->jenis }}" class="form-control @error('jenis') is-invalid @enderror">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                                            <button type="submit" class="btn btn-primary">Edit</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                        <!-- Delete -->
+                                        <button class="btn" data-toggle="modal" href="#delete{{ $jenis->id }}">Hapus</button>
+                                        <div class="modal fade" id="delete{{ $jenis->id }}" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
+                                            <form method="POST" action="/jenis/{{ $jenis->id }}">
+                                                @method('delete')
+                                                @csrf
+                                                <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="delete">Delete Jenis</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>Apakah yakin mau menghapus {{ $jenis->jenis }}?</p>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                                            <button type="submit" class="btn btn-primary">Iya</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
@@ -72,63 +129,5 @@
             </div>
         </div>
         </div>
-    </div>
-
-    <!-- Edit -->
-    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-        <form method="POST" action="/jenis/{{ $jenis->id }}">
-            @method('patch')
-            @csrf
-            <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="edit">Edit Jenis</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                </div>
-                <div class="modal-body">
-                    <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="jenis" class="bmd-label-floating" >Nama Jenis</label>
-                                        <input type="text" name="jenis" value="{{ $jenis->jenis }}" class="form-control @error('jenis') is-invalid @enderror">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                        <button type="submit" class="btn btn-primary">Edit</button>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
-
-    <!-- Delete -->
-    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
-        <form method="POST" action="/jenis/{{ $jenis->id }}">
-            @method('delete')
-            @csrf
-            <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="delete">Delete Jenis</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                </div>
-                <div class="modal-body">
-                    <p>Apakah yakin mau menghapus {{ $jenis->jenis }}?</p>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                        <button type="submit" class="btn btn-primary">Iya</button>
-                    </div>
-                </div>
-            </div>
-        </form>
     </div>
 @endsection
