@@ -38,14 +38,22 @@ class BarangController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'jenis'=> 'required'
-        ]);
+        $request->validate(
+            ['jenis_id'=> 'required'],
+            ['satuan_id' => 'required'],
+            ['kode' => 'required'],
+            ['nama_barang' => 'required'],
+            ['harga_jual' => 'required']
+        );
 
-        Jenis::where('id', $id)
-            ->update([
-                'jenis' => $request->jenis
-            ]);
+        Barang::where('id', $id)
+            ->update(
+                ['jenis_id' => $request->jenis_id],
+                ['satuan_id' => $request->satuan_id],
+                ['kode' => $request->kode],
+                ['nama_barang' => $request->nama_barang],
+                ['harga_jual' => $request->harga_jual]
+            );
         return back();
     }
 }

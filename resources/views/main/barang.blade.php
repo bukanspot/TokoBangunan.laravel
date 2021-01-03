@@ -80,7 +80,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
                                                                     <label for="nama_barang" class="bmd-label-floating">Nama Barang</label>
-                                                                    <input type="text" class="form-control" name="nama_barang" value="{{ $barang->nama_barang, $barang->id }}">
+                                                                    <input type="text" class="form-control" name="nama_barang" value="{{ $barang->nama_barang }}">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -96,7 +96,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
                                                                         <select name="jenis_id" class="dropdown-item2 form-control ">
-                                                                            <option value={{ $barang->jenis->jenis }}>{{ $barang->jenis->jenis }}</option>
+                                                                            <option value={{ $barang->jenis->id }}>{{ $barang->jenis->jenis }}</option>
                                                                             @foreach ($jenis as $editjenis)
                                                                                 <option value="{{ $editjenis->id }}">{{ $editjenis->jenis }}</option>
                                                                             @endforeach
@@ -108,7 +108,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
                                                                         <select name="satuan_id" class="dropdown-item2 form-control ">Satuan
-                                                                            <option value="{{ $barang->satuan->satuan }}">{{ $barang->satuan->satuan }}</option>
+                                                                            <option value="{{ $barang->satuan->id }}">{{ $barang->satuan->satuan }}</option>
                                                                             @foreach ($satuan as $editsatuan)
                                                                                 <option value="{{ $editsatuan->id }}">{{ $editsatuan->satuan }}</option>
                                                                             @endforeach
