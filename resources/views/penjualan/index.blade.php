@@ -5,7 +5,7 @@
     <div class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-8">
                     <div class="card">
                         <div class="card-header card-header-primary">
                             <h4 class="card-title ">Penjualan Barang</h4>
@@ -13,7 +13,7 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table">
-                                    <thead class=" text-primary">
+                                    <thead class="text-primary">
                                         <th>
                                             No
                                         </th>
@@ -54,15 +54,11 @@
                                             <td></td>
                                             <td></td>
                                             <td></td>
-                                            <td>Total Belanja</td>
+                                            <td></td>
                                         </tr>
                                     </tbody>
                                 </table>
                                 <p></p>
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#inputbarang">
-                                    Pilih Barang
-                                </button>
                                 
                                 <!-- Modal -->
                                 <div class="modal fade" id="inputbarang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -104,6 +100,51 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title ">Tambah Barang</h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" action="/barang">
+                            @method('post')
+                            @csrf
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                    <label for="kode" class="bmd-label-floating">Kode Barang</label>
+                                    <input type="number" class="form-control" name="kode">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                    <label for="stok" class="bmd-label-floating">Jumlah</label>
+                                    <input type="number" class="form-control" name="stok">
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- <input type="number" class="form-control" name="nama_barang" value="{{ }}">
+                            <input type="number" class="form-control" name="kode">
+                            <input type="number" class="form-control" name="jenis">
+                            <input type="number" class="form-control" name="satuan">
+                            <input type="number" class="form-control" name="harga_jual"> --}}
+                            <button type="submit" class="btn btn-primary pull-right">Tambah</button>
+                            <div class="clearfix"></div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3 class="text-primary">
+                                        <b>
+                                            Total :
+                                        </b>
+                                    </h3>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <button type="submit" class="btn btn-primary pull-right">Bayar</button>
                 </div>
             </div>
         </div>
