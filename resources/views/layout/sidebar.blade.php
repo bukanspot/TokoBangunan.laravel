@@ -37,16 +37,16 @@
                     <p>Satuan</p>
                 </a>
             </li>
-            <li class="nav-item{{ request()->is('report') ? ' active' : ''}}">
-                <a class="nav-link" href="{{ url('/report') }}">
-                    <i class="material-icons">dashboard</i>
-                    <p>Report</p>
-                </a>
-            </li>
             <li class="nav-item{{ request()->is('stok') ? ' active' : ''}}">
                 <a class="nav-link" href="{{ url('/stok') }}">
                     <i class="material-icons">inventory_2</i>
                     <p>Minim Stok</p>
+                </a>
+            </li>
+            <li class="nav-item{{ request()->is('report') ? ' active' : ''}}">
+                <a class="nav-link" href="{{ url('/report') }}">
+                    <i class="material-icons">dashboard</i>
+                    <p>Report</p>
                 </a>
             </li>
             <li class="nav-item{{ request()->is('lainnya') ? ' active' : '' }}">

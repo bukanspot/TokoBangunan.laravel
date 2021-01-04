@@ -7,6 +7,8 @@ Route::get('/', 'MainController');
 
 // Penjualan
 Route::get('/penjualan', 'PenjualanController@index');
+Route::post('/penjualan/insert', 'PenjualanController@update');
+Route::post('/penjualan', 'PenjualanController@insert');
 
 // Pembelian
 Route::get('/pembelian', 'PembelianController@index');
@@ -34,3 +36,7 @@ Route::patch('/satuan/{satuan}', 'SatuanController@update');
 
 // Report
 Route::get('/stok', 'StokController');
+Route::view('/report', 'report.report');
+
+// Lainnya
+Route::get('/lainnya', 'TestController');

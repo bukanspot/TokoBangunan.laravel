@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePenjualansTable extends Migration
+class AddBarangIdToDetailPembeliansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreatePenjualansTable extends Migration
      */
     public function up()
     {
-        Schema::create('penjualans', function (Blueprint $table) {
-            $table->id();
-            $table->dateTime('tanggal');
-            $table->bigInteger('total_penjualan');
-            $table->boolean('status');
-            $table->timestamps();
+        Schema::table('detail_pembelians', function (Blueprint $table) {
+            $table->foreignId('barang_id')->after('pembelian_id')->constrained('barangs');
         });
     }
 
@@ -29,6 +25,8 @@ class CreatePenjualansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('penjualans');
+        Schema::table('detail_pembelians', function (Blueprint $table) {
+            $table->dropColumn('barang_id');
+        });
     }
 }

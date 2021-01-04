@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class detail_penjualan extends Model
+class DetailPembelian extends Model
 {
-    public function penjualans(){
+    public function pembelians(){
         return $this->belongsTo(Penjualan::class);
     }
 
