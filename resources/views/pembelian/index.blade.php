@@ -12,9 +12,10 @@
             <a class="nav-link" data-toggle="modal" href="#inputsatuan">Tambah Satuan</a>
         </li>
     </ul>
-    <form class="navbar-form">
+    <form class="navbar-form" method="GET" action="/pembelian/search">
+        @csrf
         <div class="input-group no-border">
-        <input type="text" value="" class="form-control" placeholder="Search...">
+        <input type="text" name="search" class="form-control" placeholder="Search...">
         <button type="submit" class="btn btn-white btn-round btn-just-icon">
             <i class="material-icons">search</i>
             <div class="ripple-container"></div>
@@ -284,8 +285,8 @@
                 <h4 class="card-title ">Tambah Stok</h4>
             </div>
             <div class="card-body">
-                <form method="POST" action="/barang">
-                    @method('post')
+                <form method="POST" action="/pembelian/">
+                    @method('patch')
                     @csrf
                     <div class="row">
                         <div class="col-md-12">

@@ -10,6 +10,8 @@ Route::get('/penjualan', 'PenjualanController@index');
 
 // Pembelian
 Route::get('/pembelian', 'PembelianController@index');
+Route::get('/pembelian/search', 'PembelianController@show');
+Route::patch('/pembelian', 'PembelianController@update');
 
 
 // Barang

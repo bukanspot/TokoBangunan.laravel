@@ -170,7 +170,7 @@
         <div class="col-md-4">
             <div class="card">
             <div class="card-header card-header-primary">
-                <h4 class="card-title ">Tambah Jenis</h4>
+                <h4 class="card-title ">Tambah Barang</h4>
             </div>
             <div class="card-body">
                 <form method="POST" action="/barang">

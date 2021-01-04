@@ -22,8 +22,7 @@ class PembelianController extends Controller
         return view('pembelian.index')
             ->with(['barang' => $barang])
             ->with(['jenis' => $jenis])
-            ->with(['satuan' => $satuan])
-        ;
+            ->with(['satuan' => $satuan]);
     }
 
     /**
@@ -53,9 +52,31 @@ class PembelianController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($request)
     {
-        //
+        // menangkap data pencarian
+		// $search = $request;
+    
+        // mengambil data dari table pegawai sesuai pencarian data
+        // $hasil = DB::table('pegawai')
+        // ->where('pegawai_nama','like',"%".$cari."%")
+        // ->paginate();
+
+        // $hasil = Barang::get()
+        //     ->where('nama_barang', 'like', "%".$search."%");
+
+        // $hasil = Barang::whereRaw('kode = ',$request->kode,' or nama_barang = ',$request->stok)->get();
+
+        // // mengirim data pegawai ke view index
+        // $barang = Barang::get();
+        // $jenis = Jenis::get();
+        // $satuan = Satuan::get();
+        // return view('pembelian.index')
+        //     ->with(['barang' => $barang])
+        //     ->with(['jenis' => $jenis])
+        //     ->with(['satuan' => $satuan]);
+
+        return $request;
     }
 
     /**
@@ -76,9 +97,19 @@ class PembelianController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $barang = Barang::where('kode', $request->kode)->firstOrFail();
+
+        $request->validate(
+            ['stok' => 'required']
+        );
+
+        Barang::where('kode', $request->kode)
+            ->update(
+                ['stok' => $request->stok + $barang->stok]
+            );
+        return back();
     }
 
     /**
