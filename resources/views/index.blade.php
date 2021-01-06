@@ -1,6 +1,6 @@
 @extends('../layout/app')
 
-@section('title', 'Welcome')
+@section('title', '')
 @section('isi')
 <!-- Tambah Jenis -->
 <div class="modal fade" id="inputjenis" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -15,7 +15,37 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <h1>Hello Aku Spot.</h1>
+                                    <h3>Selamat Datang.</h3>
+                                    <p>Aplikasi dibuat oleh I Made Indra Wahyu Wicaksana</p>
+                                    <p>Untuk bertanya dapat menghubungi kontak berikut</p>
+                                    <table>
+                                        <col span="1" style="width: 2%;">
+                                        <col span="1" style="width: 10%;">
+                                        <tr>
+                                            <td>
+                                                Line
+                                            </td>
+                                            <td>
+                                                : bukanspot
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Github
+                                            </td>
+                                            <td>
+                                                : bukanspot
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Facebook
+                                            </td>
+                                            <td>
+                                                : bukanspot
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -30,7 +60,6 @@
 </div>
 
 <div class="container">
-    <h1>Hello</h1>
 </div>
 @stop
 

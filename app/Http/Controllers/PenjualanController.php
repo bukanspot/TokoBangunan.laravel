@@ -32,12 +32,15 @@ class PenjualanController extends Controller
         $status = 1;
         Penjualan::create($request->all());
         
+        
+        $total_harga = $request->total_harga;
         $penjualan = Penjualan::get()->max('id');
         $barang = DetailPenjualan::where('penjualan_id', $penjualan);
         return view('penjualan.index')
             ->with(['status' => $status])
             ->with(['barang' => $barang])
-            ->with(['penjualan' => $penjualan]);
+            ->with(['penjualan' => $penjualan])
+            ->with(['total_harga' => $total_harga]);
     }
 
     public function update(Request $request)

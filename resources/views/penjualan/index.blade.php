@@ -33,6 +33,7 @@
                                     @if ($status != 0)
                                     <tbody>
                                         @foreach ($barang as $barang)
+                                        {{$total_harga = 0}}
                                             <tr>
                                                 <td>
                                                     {{ $loop->iteration }}
@@ -47,7 +48,7 @@
                                                     {{ $barang->harga }}
                                                 </td>
                                                 <td>
-                                                    {{ $barang->qty*$barang->harga }}
+                                                    {{ $total_harga += $barang->qty*$barang->harga }}
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -96,6 +97,7 @@
                                 </div>
                             </div>
                                 <input type="hidden" name="penjualan_id" value={{ $penjualan }}>
+                                <input type="hidden" name="total_harga" value="{{ $total_harga }}">
                                 <button type="submit" class="btn btn-primary pull-right">Tambah</button>
                                 <div class="clearfix"></div>
                                 <div class="row">
@@ -103,7 +105,7 @@
                                         <h3 class="text-primary">
                                             <b>
                                             @if ($status != 0)
-                                                Total : Rp. {{ '' }}
+                                                Total : Rp. {{ $total_harga }}
                                             @endif
                                         </b>
                                     </h3>
